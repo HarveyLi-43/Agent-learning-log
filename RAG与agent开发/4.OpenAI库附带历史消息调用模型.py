@@ -11,8 +11,12 @@ client = OpenAI(
 response = client.chat.completions.create(
     model="qwen3-max",
     messages=[
-        {"role": "system", "content": "You are a helpful assistant"},
-        {"role": "user", "content": "你好"}
+        {"role": "system", "content": "你是一个智能助手，回答简洁高效"},
+        {"role": "user", "content": "你好"},
+        {"role": "assistant", "content": "你好！有什么可以帮你的吗？"},
+        {"role": "user", "content": "机械能守恒定律简介"},
+        {"role": "assistant", "content": "机械能守恒定律（Mechanical Energy Conservation Law）"},
+        {"role": "user", "content": "我刚问了什么"},
     ],
     stream=True
 )
@@ -21,4 +25,3 @@ response = client.chat.completions.create(
 for chunk in response:
     if chunk.choices[0].delta.content:
         print(chunk.choices[0].delta.content, end="", flush=True)
-
