@@ -3,13 +3,14 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="",
-    base_url="http://localhost:11434/v1") # 注意这里用的是openai的客户端，所以必须是 /v1
+    base_url="http://localhost:11434/v1"  # 注意这里用的是openai的客户端，所以必须是 /v1
+)
 
 response = client.chat.completions.create(
-    model="deepseek-r1:RAG与agent开发.5b",
+    model="deepseek-r1:1.5b",
     messages=[
         {"role": "system", "content": "You are a helpful assistant"},
-        {"role": "user", "content": "热力学几大定律"},
+        {"role": "user", "content": "你好"},
     ],
     stream=True
 )
